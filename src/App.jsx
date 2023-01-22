@@ -1,12 +1,14 @@
 import './App.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useExperiment from './utils/experiments';
 
 function App() {
-  /* const [ variantShown, setVariantShown ] = useState(1) */
-  const variant = useExperiment('KGpFV4A0TFaVmdZLKAUzSA');
+  const [ variantShown, setVariantShown ] = useState(1)
+  const expResult = useExperiment('KGpFV4A0TFaVmdZLKAUzSA');
 
-  console.log(variant)
+  useEffect(() => {
+    setVariantShown(expResult)
+  }, [expResult])
 
   return (
     <div className="App">
@@ -21,7 +23,7 @@ function App() {
           }}>
           Change Variant
         </button> */}
-        {variant === 1 ?
+        {variantShown === 1 ?
           <div className={'experiment experiment-2'}>
             <span>This is the VARIANT</span>
           </div>
