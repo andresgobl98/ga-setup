@@ -24,8 +24,10 @@ function App() {
     },
     enableDevMode: true,
     trackingCallback: (experiment, result) => {
-      console.log('hello')
-      console.log(experiment, result)
+      console.log({
+        experimentId: experiment.key,
+        variantId: result.variationId,
+      })
     },
   })
 
@@ -34,8 +36,6 @@ function App() {
     .then((json) => {
       gb.setFeatures(json.features)
     })
-
-  /* console.log(gb) */
 
   return (
     <GrowthBookProvider growthbook={gb}>
