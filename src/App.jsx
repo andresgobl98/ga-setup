@@ -1,8 +1,17 @@
 import './App.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [ variantShown, setVariantShown ] = useState(1)
+  const [ goVar, setGoVar ] = useState(null)
+
+  useEffect(() => {
+    const variant = window.google_optimize.get('KGpFV4A0TFaVmdZLKAUzSA')
+
+    setGoVar(variant)
+  }, [])
+
+  console.log(goVar)
   return (
     <div className="App">
       <div className='content'>
