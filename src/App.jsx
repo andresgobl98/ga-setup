@@ -10,6 +10,8 @@ function App() {
     setVariantShown(expResult)
   }, [expResult])
 
+  console.log(variantShown)
+  
   return (
     <div className="App">
       <div className='content'>
