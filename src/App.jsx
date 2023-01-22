@@ -1,17 +1,16 @@
 import './App.scss';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import useExperiment from './utils/experiments';
 
 function App() {
-  const [ variantShown, setVariantShown ] = useState(1)
+  /* const [ variantShown, setVariantShown ] = useState(1) */
   const variant = useExperiment('KGpFV4A0TFaVmdZLKAUzSA');
 
-  console.log(variant)
   return (
     <div className="App">
       <div className='content'>
         <h1>Google Analytics playground</h1>
-        <button className='button' onClick={() => {
+        {/* <button className='button' onClick={() => {
           if (variantShown === 1) {
             setVariantShown(2)
             return
@@ -19,14 +18,14 @@ function App() {
           setVariantShown(1)
           }}>
           Change Variant
-        </button>
-        {variantShown === 1 ?
+        </button> */}
+        {variant === 1 ?
           <div className={'experiment experiment-1'}>
-            <span>This is variant 1</span>
+            <span>This is the VARIANT</span>
           </div>
           :
           <div className={'experiment experiment-2'}>
-            <span>This is variant 2</span>
+            <span>This is the ORIGINAL</span>
           </div>
         }
       </div>
