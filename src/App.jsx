@@ -6,6 +6,8 @@ function App() {
   /* const [ variantShown, setVariantShown ] = useState(1) */
   const variant = useExperiment('KGpFV4A0TFaVmdZLKAUzSA');
 
+  console.log(variant)
+
   return (
     <div className="App">
       <div className='content'>
@@ -20,11 +22,11 @@ function App() {
           Change Variant
         </button> */}
         {variant === 1 ?
-          <div className={'experiment experiment-1'}>
+          <div className={'experiment experiment-2'}>
             <span>This is the VARIANT</span>
           </div>
           :
-          <div className={'experiment experiment-2'}>
+          <div className={'experiment experiment-1'}>
             <span>This is the ORIGINAL</span>
           </div>
         }
