@@ -1,13 +1,13 @@
 import './App.scss';
 import { useEffect, useState } from 'react';
 import { nanoid } from "nanoid";
-import { GrowthBook, GrowthBookProvider, useFeature } from "@growthbook/growthbook-react";
+import { GrowthBook, GrowthBookProvider } from "@growthbook/growthbook-react";
+import Contents from './Contents';
 
 const FEATURES_ENDPOINT = "https://cdn.growthbook.io/api/features/prod_2oJkcRE2G1vC1e8D0jXo9akFWxFO36NZm2i3i0qTZ90";
 
 function App() {
   const [visitorId, setVisitorId] = useState(localStorage.getItem('visitor_id'))
-  const container_type = useFeature('text-container').on
 
   useEffect(() => {
     if (!visitorId) {
@@ -18,39 +18,29 @@ function App() {
   }, [visitorId])
 
   // Create a GrowthBook instance
-  const growthbook = new GrowthBook({
+  const gb = new GrowthBook({
     attributes: {
       id: visitorId,
     },
+    enableDevMode: true,
     trackingCallback: (experiment, result) => {
-      console.log({
-        experimentId: experiment.key,
-        variationId: result.variationId,
-      })
+      console.log('hello')
+      console.log(experiment, result)
     },
   })
 
   fetch(FEATURES_ENDPOINT)
     .then((res) => res.json())
     .then((json) => {
-      growthbook.setFeatures(json.features)
+      gb.setFeatures(json.features)
     })
 
+  /* console.log(gb) */
+
   return (
-    <GrowthBookProvider growthbook={growthbook}>
+    <GrowthBookProvider growthbook={gb}>
       <div className="App">
-        <div className='content'>
-          <h1>Google Analytics playground</h1>
-          {container_type ?
-            <div className={'experiment experiment-2'}>
-              <span>This is the VARIANT</span>
-            </div>
-            :
-            <div className={'experiment experiment-1'}>
-              <span>This is the ORIGINAL</span>
-            </div>
-          }
-        </div>
+        <Contents />
       </div>
     </GrowthBookProvider>
   );
