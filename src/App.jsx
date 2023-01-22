@@ -1,17 +1,12 @@
 import './App.scss';
 import { useEffect, useState } from 'react';
+import useExperiment from './utils/experiments';
 
 function App() {
   const [ variantShown, setVariantShown ] = useState(1)
-  const [ goVar, setGoVar ] = useState(null)
+  const variant = useExperiment('KGpFV4A0TFaVmdZLKAUzSA');
 
-  useEffect(() => {
-    const variant = window.google_optimize.get('KGpFV4A0TFaVmdZLKAUzSA')
-
-    setGoVar(variant)
-  }, [])
-
-  console.log(goVar)
+  console.log(variant)
   return (
     <div className="App">
       <div className='content'>
