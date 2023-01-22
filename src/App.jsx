@@ -24,8 +24,8 @@ function App() {
     },
     trackingCallback: (experiment, result) => {
       console.log({
-        experiment: experiment,
-        result: result,
+        experimentId: experiment.key,
+        variationId: result.variationId,
       })
     },
   })
