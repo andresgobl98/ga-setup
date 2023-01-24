@@ -8,11 +8,11 @@ const Contents = () => {
         <div className='content'>
             <h1>Google Analytics playground</h1>
             {container_type ?
-                <div className={'experiment experiment-2'}>
+                <div id='text-container' className={'experiment version version-2'}>
                     <span>This is the VARIANT</span>
                 </div>
                 :
-                <div className={'experiment experiment-1'}>
+                <div id='text-container' className={'experiment version version-1'}>
                     <span>This is the ORIGINAL</span>
                 </div>
             }
