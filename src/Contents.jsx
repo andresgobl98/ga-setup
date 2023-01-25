@@ -7,15 +7,22 @@ const Contents = () => {
     return (
         <div className='content'>
             <h1>Google Analytics playground</h1>
-            {container_type ?
+            <div data-experiment-id='text-container' data-experiment-result={container_type} className={`experiment version version-${container_type ? '2' : '1'}`}>
+                {container_type ?
+                    <span>This is the VARIANT</span>
+                    :
+                    <span>This is the ORIGINAL</span>
+                }
+            </div>
+            {/* {container_type ?
                 <div id='text-container' className={'experiment version version-2'}>
                     <span>This is the VARIANT</span>
                 </div>
                 :
-                <div id='text-container' className={'experiment version version-1'}>
+                <div data-experiment-id='text-container' className={'experiment version version-1'}>
                     <span>This is the ORIGINAL</span>
                 </div>
-            }
+            } */}
         </div>
     )
 }
