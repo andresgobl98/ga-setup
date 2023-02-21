@@ -2,6 +2,13 @@ $dark-blue: #282c34;
 $light-blue: #434a57;
 $accent-blue: #4a7bd6;
 
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
 .App {
   text-align: center;
 }
@@ -48,37 +55,70 @@ $accent-blue: #4a7bd6;
   flex-direction: column;
   align-items: center;
 
+  padding: 3rem 5rem;
+
   gap: 2rem;
 
   color: white;
 }
 
-.button {
-  background-color: $accent-blue;
-  border: none;
-
-  padding: 1rem;
-  border-radius: 100vh;
-
-  font-size: 1.5rem;
-  color: $dark-blue;
-  
-  cursor: pointer;
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: $light-blue;
+  border-radius: 1rem;
 }
 
-.experiment {
+.container {
   padding: 2rem;
   border-radius: 1rem;
-  background-color: $light-blue;
+  background-color: $dark-blue;
   font-size: 1.5rem;
+}
+
+.btns {
+  display: flex;
+  gap: 2rem
+}
+
+.btn {
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  min-width: 100px;
+  cursor: pointer;
+  color: white;
+
+  font-size: 20px;
+
+  &-confirm {
+    background-color: #3469ca;
+
+    &:hover {
+      background-color: #31508a;
+    }
+  }
+  &-deny {
+    background-color: #d64a4a;
+
+    &:hover {
+      background-color: #9b3535;
+    }
+  }
 }
 
 .version {
   &-1 {
-    color: rgb(16, 235, 16);
+    .highlight {
+      color: rgb(16, 235, 16);
+    }
   }
 
   &-2 {
-    color: yellow;
+    .highlight {
+      color: yellow;
+    }
   }
 }
