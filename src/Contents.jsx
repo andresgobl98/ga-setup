@@ -15,15 +15,18 @@ const Contents = () => {
                         <p>This is the <span className='highlight'>ORIGINAL</span></p>
                     }
                 </div>
-                <div className='container btns'>
-                    <button
-                        className='submit btn btn-confirm'
-                        data-submit-value='confirm'>Confirm
-                    </button>
-                    <button
-                        className='submit btn btn-deny'
-                        data-submit-value='deny'>Deny
-                    </button>
+                <div className='container'>
+                    <p style={{ marginBottom: '1rem' }}>Do you like cats?</p>
+                    <div className="btns">
+                        <button
+                            className='submit btn btn-confirm'
+                            data-submit-value='confirm'>Confirm
+                        </button>
+                        <button
+                            className='submit btn btn-deny'
+                            data-submit-value='deny'>Deny
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
